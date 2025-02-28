@@ -9,11 +9,11 @@ def RetiradaDeEmergencia():
     if BackMenu == "si":
         MenuPrincipal()
     elif BackMenu == "no":
-        Exit = (input("\n¿quieres salir del programa? Responde con 'si' o 'no' : \n"))
+        Exit = (input("\n¿quieres salir del programa? Responde con 'si' o 'no' : \n")).lower()
         if Exit == "si":
             print("\nElige la opción 5 para salir \n")
         elif Exit == "no":
-            BackMenu1 = (input("\n¿Quieres volver al menu principal? Responde con 'si' o 'no' : \n"))
+            BackMenu1 = (input("\n¿Quieres volver al menu principal? Responde con 'si' o 'no' : \n")).lower()
             if BackMenu1 == "si":
                 MenuPrincipal()
             else:
@@ -24,8 +24,8 @@ def registro():
     Registration = int(input("Ingresa la categoría de registros : "))
     if Registration == 1:
         print("\n Tu elección es nombres ")
-        Names = (input("Introduce el nombre que quieres registrar :"))
-        Confirmation1 = (input("Escribe 'confirmo' para enviar el nombre : "))
+        Names = (input("Introduce el nombre que quieres registrar :")).lower()
+        Confirmation1 = (input("Escribe 'confirmo' para enviar el nombre : ")).lower()
         Con1 = Confirmation1.lower()
         if Con1 == "confirmo":
             Almacenamiento["nombres"].append(Names) 
@@ -39,8 +39,8 @@ def registro():
             return None
     elif Registration == 3:
         print("Tu elección es direcciones")
-        Adress = (input("Introduce la dirección que quieres registrar : "))
-        Confirmation3 = (input("Escribe 'confirmo' para enviar la dirección :"))
+        Adress = (input("Introduce la dirección que quieres registrar : ")).lower()
+        Confirmation3 = (input("Escribe 'confirmo' para enviar la dirección :")).lower()
         Con3 = Confirmation3.lower()
         AdressSpace = Adress + " "
         if Con3 == "confirmo":
@@ -58,7 +58,7 @@ def busqueda():
     Response = int((input("\n 1. Nombre \n 2. Numeros \n 3. Direcciones \n 4. Salir : ")))
     if Response == 1:
         print("Tu elección es busqueda de nombres \n")
-        SearchName = input("Introduce el nombre que deseas buscar : ")
+        SearchName = input("Introduce el nombre que deseas buscar : ").lower()
         if SearchName in Almacenamiento["nombres"]:
             NombreEncontrado = Almacenamiento["nombres"].index(SearchName)
             print(f"El nombre que registraste es {SearchName} y la posición es {NombreEncontrado}")
@@ -78,7 +78,7 @@ def busqueda():
             return
     elif Response == 3:
         print("Tu elección es busqueda de direcciones")
-        SearchAdress = input("Introduce la dirección que deseas buscar :")
+        SearchAdress = input("Introduce la dirección que deseas buscar :").lower()
         if SearchAdress in Almacenamiento["direcciones"]:
             DirecciónEncontrada = Almacenamiento["direcciones"].index(SearchAdress)
             print(f"La dirección que registraste es {SearchAdress} y la posición es {DirecciónEncontrada}")
@@ -110,7 +110,7 @@ def DelCliente():
     response = int(input("\n 1. Nombre \n 2. Números \n 3. Direcciones \n 4. Volver al menú principal :"))
     if response == 1:
         print("Tu elección es eliminación de nombres")
-        DelName = input("Introduce el nombre que deseas eliminar: ")
+        DelName = input("Introduce el nombre que deseas eliminar: ").lower()
         if DelName in Almacenamiento["nombres"]:
             Almacenamiento["nombres"].remove(DelName)
             print(f"El nombre {DelName} ha sido eliminado")
@@ -130,7 +130,7 @@ def DelCliente():
             return
     elif response == 3:
         print("Tu elección es eliminación de direcciones")
-        DelAdress = input("Introduce la dirección que deseas eliminar: ")
+        DelAdress = input("Introduce la dirección que deseas eliminar: ").lower()
         if DelAdress in Almacenamiento["direcciones"]:
             Almacenamiento["direcciones"].remove(DelAdress)
             print(f"La dirección {DelAdress} Se elimino.")
